@@ -13,6 +13,11 @@ public class PaymentPortal {
     private static final Scanner scanner = new Scanner(System.in);
 
     public PaymentPortal(Order order, PaymentMethod paymentMethod) {
+        this.order = order;
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void pay() {
         if (paymentMethod == CARD) {
             System.out.println("please enter the numbers, without dots or spaces");
             String number = input("enter your card number");
