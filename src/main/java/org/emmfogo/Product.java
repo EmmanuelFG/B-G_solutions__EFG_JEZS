@@ -1,4 +1,4 @@
 package org.emmfogo;
 
-public class Producto {
+public class Product {
 }

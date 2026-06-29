@@ -1,4 +1,4 @@
 package org.emmfogo;
 
-public class Pedido {
+public class Order {
 }
