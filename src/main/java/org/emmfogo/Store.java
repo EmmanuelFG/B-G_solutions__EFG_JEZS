@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 
 public class Store {
-    List<Order> unprocessedOrders;
-    Scanner sn = new Scanner(System.in);
+    private final List<Order> unprocessedOrders;
+    private final Scanner sn = new Scanner(System.in);
 
     public Store() {
         unprocessedOrders = new ArrayList<>();
