@@ -7,13 +7,12 @@ public class Coupon {
     private final String code;
     private final int uses;
     private final ExpirationDate validity;
-    private final int value;
 
-    public Coupon(int value, int uses, ExpirationDate validity){
+
+    public Coupon(int uses, ExpirationDate validity){
         this.code = codeGenerator();
         this.validity = validity;
         this.uses = uses;
-        this.value = value;
     }
 
     public String codeGenerator(){
@@ -31,5 +30,6 @@ public class Coupon {
     public String getCode() {
         return code;
     }
+
 
 }

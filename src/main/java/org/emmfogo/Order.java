@@ -25,6 +25,9 @@ public class Order {
 
     }
 
+    public int getId() {
+        return id;
+    }
 
     public void showOrder() {
         System.out.println(this.id);
@@ -37,5 +40,13 @@ public class Order {
             System.out.println("Discount: ");
         }
 
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
