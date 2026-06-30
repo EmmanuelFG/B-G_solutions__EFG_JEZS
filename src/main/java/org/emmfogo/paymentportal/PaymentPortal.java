@@ -8,13 +8,18 @@ import static org.emmfogo.paymentportal.PaymentMethod.CARD;
 import static org.emmfogo.paymentportal.PaymentMethod.PAYPAL;
 
 public class PaymentPortal {
-    private Order order;
-    private PaymentMethod paymentMethod;
     private static final Scanner scanner = new Scanner(System.in);
+    private final Order order;
+    private final PaymentMethod paymentMethod;
 
     public PaymentPortal(Order order, PaymentMethod paymentMethod) {
         this.order = order;
         this.paymentMethod = paymentMethod;
+    }
+
+    public static String input(String message) {
+        System.out.print(message);
+        return scanner.nextLine();
     }
 
     public void pay() {
@@ -27,16 +32,11 @@ public class PaymentPortal {
             ExpirationDate date = new ExpirationDate(month, year);
             Card card = new Card(number, csv, date);
             //Emma no revise su rama :) order.total seria como el total a cobrar.
-            System.out.println("Successful payment of" + "order.total" + "with your card ending in" + card.getNumber()); //
+            System.out.println("Successful payment of" + order.getTotalPrice() + "with your card ending in" + card.getNumber()); //
         } else if (paymentMethod == PAYPAL) {
             String account = input("Enter the email registered in your paypal account");
             String password = input("Enter your password");
-            System.out.println("Successful payment of" + "order.total" + "with your payapal account");
+            System.out.println("Successful payment of" + order.getTotalPrice() + "with your payapal account");
         }
-    }
-
-    public static String input(String message) {
-        System.out.print(message);
-        return scanner.nextLine();
     }
 }

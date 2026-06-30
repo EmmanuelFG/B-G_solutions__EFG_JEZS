@@ -7,17 +7,19 @@ import java.util.List;
 import java.util.Random;
 
 public class Order {
-    private final List<Product> products;
     private final String discount;
     private final int id;
-    private PaymentMethod paymentMethod;
+    private final List<Product> products;
+    private final PaymentMethod paymentMethod;
     private int totalPrice;
 
     public Order(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
         Random r = new Random();
         id = r.nextInt(999);
         this.products = new ArrayList<>();
         discount = null;
+        totalPrice = 0;
 
     }
 
@@ -27,15 +29,20 @@ public class Order {
 
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
 
     public void showOrder() {
+        System.out.println();
         System.out.println(this.id);
         if (products.isEmpty()) {
             System.out.println("The order is empty");
         } else {
+
             products.stream().forEach(Product::showProduct);
-            System.out.println("Price: " + totalPrice);
-            System.out.println("Payment Method: ");
+            System.out.println("Total Price: " + totalPrice);
+            System.out.println("Payment Method: " + paymentMethod);
             System.out.println("Discount: ");
         }
 

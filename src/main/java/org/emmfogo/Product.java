@@ -26,7 +26,7 @@ public class Product {
     }
 
     public void showProduct() {
-        System.out.printf("Product %s, price %d%n", this.name, this.price);
+        System.out.println("Product " + this.name + " price " + this.price);
     }
 
 
