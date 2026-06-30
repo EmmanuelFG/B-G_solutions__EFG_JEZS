@@ -13,6 +13,6 @@ public class Product {
     }
 
     public void showProduct() {
-        System.out.printf("Producto %s, precio %d%n", this.name, this.price);
+        System.out.printf("Product %s, price %d%n", this.name, this.price);
     }
 }

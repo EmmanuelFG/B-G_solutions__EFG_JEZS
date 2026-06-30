@@ -29,12 +29,12 @@ public class Order {
     public void showOrder() {
         System.out.println(this.id);
         if (products.isEmpty()) {
-            System.out.println("El pedido se encuentra vacío");
+            System.out.println("The order is empty");
         } else {
             products.stream().forEach(Product::showProduct);
-            System.out.println("Precio Acumulado: " + totalPrice);
-            System.out.println("Medio de pago: ");
-            System.out.println("Descuento: ");
+            System.out.println("Price: " + totalPrice);
+            System.out.println("Payment Method: ");
+            System.out.println("Discount: ");
         }
 
     }
