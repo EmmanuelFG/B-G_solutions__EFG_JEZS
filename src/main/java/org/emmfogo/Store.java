@@ -1,6 +1,7 @@
 package org.emmfogo;
 
 import org.emmfogo.paymentportal.PaymentMethod;
+import org.emmfogo.paymentportal.PaymentPortal;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -10,12 +11,11 @@ import java.util.Scanner;
 
 public class Store {
     List<Order> unprocessedOrders;
-    List<Product> existingProducts;
     Scanner sn = new Scanner(System.in);
 
     public Store() {
         unprocessedOrders = new ArrayList<>();
-        existingProducts = new ArrayList<>();
+
     }
 
     public Product createProduct() {
@@ -90,11 +90,24 @@ public class Store {
     public void showOrders() {
         if (unprocessedOrders.isEmpty()) {
             System.out.println("There are no unprocessed orders");
-        } else unprocessedOrders.stream().forEach(Order::showOrder);
+        } else {
+            System.out.println();
+            unprocessedOrders.stream().forEach(Order::showOrder);
+        }
     }
 
     public void processAll() {
-
+        if (!unprocessedOrders.isEmpty()) {
+            System.out.println("//////////////////");
+            unprocessedOrders.stream().forEach(e -> {
+                PaymentPortal paymentPortal = new PaymentPortal(e, e.getPaymentMethod());
+                paymentPortal.pay();
+                System.out.println("///////////////");
+            });
+            unprocessedOrders.clear();
+        } else {
+            System.out.println("There are no unprocessed orders");
+        }
     }
 
     public void openStore() {

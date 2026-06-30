@@ -33,9 +33,13 @@ public class Order {
         return totalPrice;
     }
 
+    public PaymentMethod getPaymentMethod() {
+        return this.paymentMethod;
+    }
+
     public void showOrder() {
         System.out.println();
-        System.out.println(this.id);
+        System.out.println("Id: " + this.id);
         if (products.isEmpty()) {
             System.out.println("The order is empty");
         } else {
