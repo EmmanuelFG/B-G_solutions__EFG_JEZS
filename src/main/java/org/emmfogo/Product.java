@@ -4,6 +4,10 @@ public class Product {
     private String name;
     private int price;
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
