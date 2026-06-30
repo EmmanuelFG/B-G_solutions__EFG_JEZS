@@ -30,6 +30,12 @@ public class Store {
         }
     }
 
+    public void showOrders() {
+        if (unprocessedOrders.isEmpty()) {
+            System.out.println("There are no unprocessed orders");
+        } else unprocessedOrders.stream().forEach(Order::showOrder);
+    }
+
     public void openStore() {
         int answer = 0;
 
@@ -61,6 +67,7 @@ public class Store {
                 case 3:
                     break;
                 case 4:
+                    showOrders();
                     break;
                 case 5:
                     break;
