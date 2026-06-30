@@ -1,5 +1,7 @@
 package org.emmfogo;
 
+import org.emmfogo.paymentportal.PaymentMethod;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,10 +10,10 @@ public class Order {
     private final List<Product> products;
     private final String discount;
     private final int id;
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
     private int totalPrice;
 
-    public Order(String paymentMethod) {
+    public Order(PaymentMethod paymentMethod) {
         Random r = new Random();
         id = r.nextInt(999);
         this.products = new ArrayList<>();
